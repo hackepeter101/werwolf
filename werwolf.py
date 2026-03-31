@@ -216,8 +216,14 @@ def player_selector(options=None):
         return None
 
     print(pick_line("select_player"))
+    option_templates = TEXTS.get("select_player_option", ["{index} = {player}"])
+    if isinstance(option_templates, (list, tuple)):
+        option_template = str(rng.choice(option_templates)) if option_templates else "{index} = {player}"
+    else:
+        option_template = str(option_templates)
+
     for i, player in enumerate(options):
-        print(pick_line("select_player_option", index=i + 1, player=player))
+        print(option_template.format_map(SafeDict(index=i + 1, player=player)))
     while True:
         raw = input(pick_line("select_player_input")).strip()
         if not raw.isdigit():
