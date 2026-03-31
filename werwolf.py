@@ -308,6 +308,7 @@ def check_winner():
     alive_non_wolves = sum(1 for name, data in players.items() if data["lebt"] and data["rolle"] != "Werwolf")
 
     if alive_wolves == 0:
+        clear_screen()
         if safe_mode:
             print(logo)
             print(green(pick_line("villagers_win_safe")))
@@ -317,6 +318,7 @@ def check_winner():
         return True
 
     if alive_wolves >= alive_non_wolves:
+        clear_screen()
         print(logo)
         print(red(pick_line("wolves_win")))
         return True
