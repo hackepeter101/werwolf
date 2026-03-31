@@ -1,0 +1,163 @@
+{
+  "kill_intro": [
+    "Im Schutz der Dunkelheit",
+    "Noch vor Sonnenaufgang",
+    "Zwischen Schatten und Stille"
+  ],
+  "kill": [
+    "{{kill_intro}} wurde {player} {death_word}.",
+    "{{kill_intro}} hat man {player} {death_word}.",
+    "{{kill_intro}} endete es für {player}: {death_word}."
+  ],
+  "phase_intro": [
+    "Die Nacht schreitet voran.",
+    "Ein weiterer Schritt der Nacht beginnt.",
+    "Das Dorf haelt den Atem an."
+  ],
+  "night_start": [
+    "{{phase_intro}} Das Spiel startet und alle schlafen ein.",
+    "{{phase_intro}} Die Nacht bricht herein. Alle schliessen die Augen.",
+    "{{phase_intro}} Es wird still im Dorf. Die Nacht beginnt."
+  ],
+  "wolf_phase": [
+    "{{phase_intro}} Die Werwölfe wachen auf und waehlen ein Opfer.",
+    "{{phase_intro}} Die Werwölfe öffnen ihre roten Augen und bestimmen ihr Ziel.",
+    "{{phase_intro}} In der Dunkelheit suchen die Werwölfe ihr Opfer aus."
+  ],
+  "phase_awake_single": [
+    "{phase} erwacht."
+  ],
+  "phase_awake_plural": [
+    "{phase} erwachen."
+  ],
+  "phase_sleep_single": [
+    "{phase} schläft wieder ein."
+  ],
+  "phase_sleep_plural": [
+    "{phase} schlafen wieder ein."
+  ],
+  "phase_erbe_label": ["Der Erbe"],
+  "phase_wolf_label": ["Die Werwölfe"],
+  "phase_seer_label": ["Die Seherin"],
+  "phase_witch_label": ["Die Hexe"],
+  "morning_awake": [
+    "Der Morgen beginnt. Das Dorf erwacht."
+  ],
+  "vote_awake": [
+    "Die Abstimmungsphase beginnt."
+  ],
+  "deaths_header": [
+    "Gestorben in dieser Nacht:",
+    "Diese Nacht hat das Dorf verloren:",
+    "Am Morgen fehlen folgende Personen:"
+  ],
+  "deaths_details_header": [
+    "Was in der Nacht passiert ist:"
+  ],
+  "no_deaths": [
+    "Diese Nacht ist niemand gestorben.",
+    "Alle haben die Nacht überlebt.",
+    "Heute Morgen gibt es keine Opfer."
+  ],
+  "no_judgement": [
+    "Die Dorfbewohner entscheiden sich, nichts zu tun. Die Nacht beginnt erneut."
+  ],
+  "event_intro": [
+    "Am Morgen passiert etwas Unerwartetes.",
+    "Noch bevor die Diskussion startet, geschieht etwas Seltsames.",
+    "Das Dorf erwacht - und ein Ereignis sorgt für Aufregung."
+  ],
+  "wake": [
+    "Die Sonne geht auf und die Dorfbewohner erwachen. Wer könnte werwolf sein?",
+    "Alle reiben sich die Augen und bereiten sich auf den neuen Tag vor. Ist {player} vieleicht ein Wolf?",
+    "Ein neuer Tag beginnt, und die Bewohner des Dorfes erwachen langsam."
+  ],
+  "event_hint": [
+    "{{event_intro}} Ein Rabe kreist über {player}. Manche werden misstrauisch.",
+    "{{event_intro}} Im Schlamm vor {player}s Haus sind frische Spuren.",
+    "{{event_intro}} Ein Kind behauptet, {player} nachts gesehen zu haben.",
+    "{{event_intro}} {player} hat kreislaufzusammenbruch.",
+    "{{event_intro}} {player}s Katze verhält sich seltsam aggressiv in seiner Nähe.",
+    "{{event_intro}} Die Feuerstelle von {player} ist kalt, obwohl er gestern Abend noch dort war."
+  ],
+  "event_funny": [
+    "{{event_intro}} Der Bäcker beschuldigt einen Hund, ein Werwolf zu sein.",
+    "{{event_intro}} Der Dorfbrunnen gluckert ungewöhnlich dramatisch.",
+    "{{event_intro}} Jemand hat dem Bürgermeister einen Schnurrbart gemalt.",
+    "{{event_intro}} Eine Ziege verfolgt stoisch den Nachtwächter.",
+    "{{event_intro}} Das Huhn auf dem Marktplatz wirkt heute verdächtig selbstbewusst.",
+    "{{event_intro}} {player} behauptet er habe ein Wildschwein mit skibrille gesehen das von einem Werwolf gefressen wurde."
+  ],
+  "event_nothing": [
+    "{{event_intro}} Am Ende bleibt es nur ein Gerücht.",
+    "{{event_intro}} Nach kurzem Trubel beruhigt sich alles wieder.",
+    "{{event_intro}} Doch es hat keine direkten Folgen.",
+    "{{event_intro}} Was es war? Du wirst es nie erfahren."
+  ],
+  "no_valid_players": ["Keine gültigen Spieler zur Auswahl."],
+  "select_player": ["Wähle einen Spieler:"],
+  "select_player_option": ["{index} = {player}"],
+  "select_player_input": ["Nummer eingeben: "],
+  "not_a_number": ["Das war KEINE Zahl!"],
+  "dead_wolf": ["{player} war ein Werwolf!"],
+  "dead_hunter": ["{player} war ein Jäger! Er darf einen Spieler mitnehmen."],
+  "heir_inherits": ["{heir} erbt die Rolle von {dead_player}."],
+  "setup_not_found": ["Kein gültiges Setup gefunden. Neues Setup wird erstellt."],
+  "restart_prompt": ["Drücke Enter um ein neues Spiel zu starten. STRG+C zum Beenden."],
+  "villagers_win": ["Alle Werwölfe wurden getötet. Die Dorfbewohner gewinnen!"],
+  "villagers_win_safe": ["Alle Werwölfe wurden aus dem Dorf verwiesen. Die Dorfbewohner gewinnen!"],
+  "wolves_win": ["Die Werwölfe haben die Mehrheit. Die Werwölfe gewinnen!"],
+  "morning_continue": ["Drücke Enter um fortzufahren."],
+  "setup_load_prompt": ["Setup laden? (j/n): "],
+  "setup_action_prompt": ["Setup: 1=Laden, 2=Laden+Bearbeiten, 3=Neu: "],
+  "setup_invalid_choice": ["Ungültige Auswahl, es wird ein neues Setup erstellt."],
+  "setup_missing_for_load": ["Kein gültiges gespeichertes Setup gefunden. Neues Setup wird erstellt."],
+  "setup_loaded": ["Setup geladen."],
+  "setup_current_overview": ["Aktuelles Setup: OmaMode={safe_mode}, Spieler={num_players}, Rollen={deck_string}"],
+  "setup_edit_oma_prompt": ["Oma Mode ändern? (on/off, Enter = behalten): "],
+  "setup_edit_player_count_prompt": ["Spieleranzahl ändern? (Enter = {num_players}): "],
+  "setup_edit_names_prompt": ["Namen neu eingeben? (j/n, Enter = n): "],
+  "setup_edit_role_prompt": ["Rollenverteilung ändern? (Enter = {deck_string}): "],
+  "setup_saved_after_edit": ["Bearbeitetes Setup gespeichert."],
+  "oma_mode_prompt": ["Oma Mode? (on/off): "],
+  "player_count_prompt": ["Gib die Spieleranzahl ein: "],
+  "player_name_prompt": ["Gebe die Namen der Spieler ein: {index}: "],
+  "players_header": ["Spieler:"],
+  "roles_input_prompt": ["Gebe die Rollen ein (zusammenhängend)\nB = Harlekin, W = Werwolf, E = Erbe, J = Jäger, H = Hexe, S = Seherin. Es wird automatisch mit Dorfbewohnern aufgefüllt: "],
+  "setup_save_prompt": ["Setup speichern? (j/n): "],
+  "setup_saved": ["Setup gespeichert in {file}."],
+  "setup_save_failed": ["Setup konnte nicht gespeichert werden."],
+  "roles_in_deck": ["Rollen im Deck:"],
+  "only_one_heir": ["Es kann nur einen Erbe geben."],
+  "only_one_witch": ["Es kann nur eine Hexe geben."],
+  "only_one_seer": ["Es kann nur eine Seherin geben."],
+  "invalid_role": ["Ungültige Rolle: {role}"],
+  "not_enough_roles": ["Nicht genügend Rollen im Deck für die Anzahl der Spieler. {deck_count} Rollen für {num_players} Spieler.\nFülle auf mit Dorfbewohnern (D)."],
+  "missing_wolf": ["Es muss mindestens ein Werwolf im Deck sein. Es wird ein zufälliger Spieler als Werwolf ausgewählt."],
+  "role_reveal_prompt": ["{player}, drücke Enter um deine Rolle zu sehen."],
+  "role_reveal": ["{player} ist {role} (drücke Enter um fortzufahren)"],
+  "moderator_start": ["Spielleitung: Enter drücken um die Nacht zu starten."],
+  "heir_phase": ["{player} ist der Erbe. Er darf eine Person wählen und dann deren Rolle erben."],
+  "first_night_no_wolf": ["In der ersten Nacht wählen die Werwölfe kein Opfer."],
+  "seer_phase": ["{player} ist die Seherin. Sie darf die Rolle eines Spielers erfahren."],
+  "seer_result": ["{player} ist {role}."],
+  "continue_prompt": ["Drücke Enter um fortzufahren."],
+  "witch_phase": ["{player} ist die Hexe. Sie hat einen Heiltrank und einen Gifttrank."],
+  "wolf_target_selected": ["{player} wurde von den Werwölfen als Ziel ausgewählt."],
+  "witch_heal_option": ["1 = Heiltrank benutzen"],
+  "witch_poison_option": ["2 = Gifttrank benutzen"],
+  "do_nothing_option": ["3 = Nichts tun"],
+  "witch_choice_prompt": ["Was möchtest du tun? "],
+  "witch_heal_used": ["{player} benutzt den Heiltrank auf {target}."],
+  "witch_poison_used": ["{player} benutzt den Gifttrank auf {target}."],
+  "vote_option": ["1 = Spieler verurteilen"],
+  "skip_vote_option": ["2 = Nichts tun"],
+  "vote_choice_prompt": ["Was möchtest du tun? "],
+  "vote_confirm": ["Wirklich einen Spieler verurteilen? (1 zum bestätigen): "],
+  "harlequin_win": ["{player} war der Harlekin! Er gewinnt das Spiel für sich alleine!"],
+  "hud_players": ["Spieler"],
+  "hud_wolves": ["Wölfe","Wölfe","Wölfe","Wölfe","wilde Wölfe","Wölfe"],
+  "hud_round": ["Runde"],
+  "death_list_item": ["- {player}"],
+  "death_detail_item": ["- {message}"]
+}
