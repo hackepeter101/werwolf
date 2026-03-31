@@ -582,19 +582,18 @@ def run_erbe_phase():
     """Run Erbe (heir) selection phase."""
     if "Erbe" not in assignments.values():
         return
-    
-    clear_screen()
-    print(logo)
-    print_HUD()
-    announce_phase_awake("phase_erbe_label", color_func=yellow)
     erbe_player = next(player for player, role in assignments.items() if role == "Erbe")
     if players[erbe_player]["status"]["kopie"] is None:
+        clear_screen()
+        print(logo)
+        print_HUD()
+        announce_phase_awake("phase_erbe_label", color_func=yellow)
         print(pick_line("heir_phase", player=erbe_player))
         erbe_target = player_selector([name for name, data in players.items() if data["lebt"] and name != erbe_player])
         players[erbe_player]["status"]["kopie"] = erbe_target
-    announce_phase_sleep("phase_erbe_label", color_func=yellow)
-    input(pick_line("continue_prompt"))
-    clear_screen()
+        announce_phase_sleep("phase_erbe_label", color_func=yellow)
+        input(pick_line("continue_prompt"))
+        clear_screen()
 
 
 def run_werwolf_phase(round_number):
