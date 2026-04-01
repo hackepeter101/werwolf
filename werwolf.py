@@ -2,6 +2,14 @@ import random
 import os
 import copy
 import json
+import re
+import importlib
+from datetime import datetime
+
+try:
+    text2art = importlib.import_module("art").text2art
+except Exception:
+    text2art = None
 
 
 def clear_screen():
@@ -45,6 +53,26 @@ def rainbow(text):
             else:
                 colored.append(f"{colors[color_index % len(colors)]}{char}\033[0m")
             color_index += 1
+        output_lines.append("".join(colored))
+
+    return "\n".join(output_lines)
+
+
+def blueText(text):
+    """Color only full block pairs (█) in blue, keep all other chars unchanged."""
+    lines = str(text).split("\n")
+    output_lines = []
+
+    for line in lines:
+        colored = []
+        i = 0
+        while i < len(line):
+            if i + 1 < len(line) and line[i:i + 1] == "█":
+                colored.append(f"\033[94m█\033[0m")
+                i += 1
+            else:
+                colored.append(line[i])
+                i += 1
         output_lines.append("".join(colored))
 
     return "\n".join(output_lines)
@@ -171,6 +199,42 @@ def colorize_role(role_name):
     color_func = role_colors.get(role_name, blue)
     return color_func(role_name)
 
+
+ANSI_ESCAPE_RE = re.compile(r"\x1B\[[0-?]*[ -/]*[@-~]")
+
+
+def strip_ansi(text):
+    return ANSI_ESCAPE_RE.sub("", str(text))
+
+
+def role_art_text(role_name):
+    """Generate role title art using python-art tarty1 font."""
+    if text2art is None:
+        return role_name.upper()
+    try:
+        return blueText(text2art(role_name, font="tarty1").rstrip("\n"))
+    except Exception:
+        return role_name.upper()
+
+
+def print_role_card(player_name, role_name):
+    """Print a framed role card with dynamic ASCII title."""
+    lines = [
+        f"Spieler: {player_name}",
+        "",
+        *role_art_text(role_name).splitlines(),
+        "",
+        f"Rolle: {colorize_role(role_name)}",
+    ]
+    width = max(len(strip_ansi(line)) for line in lines)
+    border = "+" + "-" * (width + 2) + "+"
+
+    print(border)
+    for line in lines:
+        padding = width - len(strip_ansi(line))
+        print(f"| {line}{' ' * padding} |")
+    print(border)
+
 deck = []
 deaths_this_night = []
 death_messages_this_night = []
@@ -179,7 +243,10 @@ safe_mode = False
 death_word = "getötet"
 
 gewonnen_ascii_art = "  ░██████                                                                                      \n ░██   ░██                                                                                     \n░██         ░███████  ░██    ░██    ░██  ░███████  ░████████  ░████████   ░███████  ░████████  \n░██  █████ ░██    ░██ ░██    ░██    ░██ ░██    ░██ ░██    ░██ ░██    ░██ ░██    ░██ ░██    ░██ \n░██     ██ ░█████████  ░██  ░████  ░██  ░██    ░██ ░██    ░██ ░██    ░██ ░█████████ ░██    ░██ \n ░██  ░███ ░██          ░██░██ ░██░██   ░██    ░██ ░██    ░██ ░██    ░██ ░██        ░██    ░██ \n  ░█████░█  ░███████     ░███   ░███     ░███████  ░██    ░██ ░██    ░██  ░███████  ░██    ░██ "
-logo = rainbow("░██       ░██                                                  ░██     ░████ \n░██       ░██                                                  ░██    ░██    \n░██  ░██  ░██  ░███████  ░██░████ ░██    ░██    ░██  ░███████  ░██ ░████████ \n░██ ░████ ░██ ░██    ░██ ░███     ░██    ░██    ░██ ░██    ░██ ░██    ░██    \n░██░██ ░██░██ ░█████████ ░██       ░██  ░████  ░██  ░██    ░██ ░██    ░██    \n░████   ░████ ░██        ░██        ░██░██ ░██░██   ░██    ░██ ░██    ░██    \n░███     ░███  ░███████  ░██         ░███   ░███     ░███████  ░██    ░██    ")
+logo = "░██       ░██                                                  ░██     ░████ \n░██       ░██                                                  ░██    ░██    \n░██  ░██  ░██  ░███████  ░██░████ ░██    ░██    ░██  ░███████  ░██ ░████████ \n░██ ░████ ░██ ░██    ░██ ░███     ░██    ░██    ░██ ░██    ░██ ░██    ░██    \n░██░██ ░██░██ ░█████████ ░██       ░██  ░████  ░██  ░██    ░██ ░██    ░██    \n░████   ░████ ░██        ░██        ░██░██ ░██░██   ░██    ░██ ░██    ░██    \n░███     ░███  ░███████  ░██         ░███   ░███     ░███████  ░██    ░██    "
+if random.random() < 0.1 or datetime.now().month == 10:
+    logo = rainbow(logo)
+
 
 def load_texts():
     """Lade alle Strings aus werwolf_strings.json"""
@@ -578,7 +645,7 @@ def show_role_reveal():
         input()
         clear_screen()
         print(logo)
-        print(pick_line("role_reveal", player=green(player), role=blue(role)))
+        print_role_card(green(player), role)
         input()
     clear_screen()
     print(logo)
@@ -639,7 +706,7 @@ def run_seherin_phase():
         pick_line(
             "seer_result",
             player=green(seherin_target),
-            role=colorize_role(revealed_role),
+            role=print_role_card(revealed_role),
         )
     )
     announce_phase_sleep("phase_seer_label", color_func=blue)
@@ -717,8 +784,6 @@ def print_deaths():
 
 def run_day_phase():
     """Run day phase: village vote."""
-    
-    
     clear_screen()
     print(logo)
     print_HUD()

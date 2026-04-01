@@ -105,6 +105,9 @@ create_venv() {
   log "Upgrading pip in virtual environment..."
   "$TARGET_DIR/$VENV_DIR/bin/pip" install --upgrade pip
 
+  log "Installing art package for ASCII role cards..."
+  "$TARGET_DIR/$VENV_DIR/bin/pip" install art
+
   if [[ -f "$TARGET_DIR/requirements.txt" ]]; then
     log "Installing dependencies from requirements.txt..."
     "$TARGET_DIR/$VENV_DIR/bin/pip" install -r "$TARGET_DIR/requirements.txt"
