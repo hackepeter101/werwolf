@@ -702,13 +702,8 @@ def run_seherin_phase():
     print(pick_line("seer_phase", player=seherin_player))
     seherin_target = player_selector()
     revealed_role = players[seherin_target]["rolle"]
-    print(
-        pick_line(
-            "seer_result",
-            player=green(seherin_target),
-            role=print_role_card(revealed_role),
-        )
-    )
+    print(pick_line("seer_result", player=green(seherin_target), role=colorize_role(revealed_role)))
+    print_role_card(green(seherin_target), revealed_role)
     announce_phase_sleep("phase_seer_label", color_func=blue)
     input(pick_line("continue_prompt"))
     clear_screen()
