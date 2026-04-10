@@ -105,8 +105,8 @@ create_venv() {
   log "Upgrading pip in virtual environment..."
   "$TARGET_DIR/$VENV_DIR/bin/pip" install --upgrade pip
 
-  log "Installing art package for ASCII role cards..."
-  "$TARGET_DIR/$VENV_DIR/bin/pip" install art
+  log "Installing pyfiglet package for ASCII role cards..."
+  "$TARGET_DIR/$VENV_DIR/bin/pip" install pyfiglet
 
   if [[ -f "$TARGET_DIR/requirements.txt" ]]; then
     log "Installing dependencies from requirements.txt..."
